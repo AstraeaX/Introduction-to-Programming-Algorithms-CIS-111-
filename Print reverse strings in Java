@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class reverseString {
+    public static void main(String[] args) {
+
+        Scanner s = new Scanner(System.in);
+        String text = s.nextLine();
+        int n = text.length();
+
+        while (n >= 0) {
+            if (text.equals("quit") || text.equals("q") || text.equals("Quit")) {
+                System.out.print("Thank you for reversing strings with me today. Goodbye.");
+                n = -1;
+            }
+            else {
+                for (int i = text.length() - 1; i >= 0; i--) {
+                    char d = text.charAt(i);
+                    System.out.print(d);
+                    n--;
+                }
+            }
+            if (n == 0) {
+                System.out.println("");
+                text = s.nextLine();
+                n = text.length();
+            }
+        }
+    }
+}
