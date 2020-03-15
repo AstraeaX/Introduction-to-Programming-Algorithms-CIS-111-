@@ -1,0 +1,112 @@
+import java.util.Scanner;
+
+public class PlayerRoster {
+   public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int[][] players = new int[5][2];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter player " + (i + 1) + "'s jersey number:");
+            players[i][0] = s.nextInt();
+            for (int j = 1; j < 2; j++) {
+                System.out.println("Enter player " + (i + 1) + "'s rating:");
+                players[i][j] = s.nextInt();
+            }
+            if (i < 4) {
+            System.out.println();
+            }
+        }
+
+        System.out.println("\nROSTER");
+
+        roster(players);
+        menu();
+        option(players, s);
+
+    }
+    
+    public static void roster(int[][] players) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 1; j < 2; j++) {
+                System.out.println("Player " + (i + 1) + " -- Jersey number: " + players[i][0] + ", Rating: " + players[i][j]);
+            }
+        }
+    }
+    
+    public static void menu() {
+        System.out.println("\nMENU");
+
+        System.out.println("u - Update player rating");
+        System.out.println("a - Output players above a rating");
+        System.out.println("r - Replace player");
+        System.out.println("o - Output roster");
+        System.out.println("q - Quit");
+
+        System.out.println("\nChoose an option:");
+    }
+    
+    public static void option(int[][] players, Scanner s) {
+        String input = s.next();
+        int numJersey;
+        int numRating;
+        int newJersey;
+
+        while (!input.equals("q")) {
+            if (input.equals("u")) {
+                System.out.println("Enter a jersey number:");
+                numJersey = s.nextInt();
+                for (int i = 0; i < 5; i++) {
+                    if (players[i][0] == numJersey) {
+                        System.out.println("Enter a new rating for player:");
+                        numRating = s.nextInt();
+                        players[i][1] = numRating;
+                        break;
+                    }
+                }
+                menu();
+                input = s.next();
+            }
+            else if (input.equals("o")) {
+               System.out.println("\nROSTER");
+                roster(players);
+                menu();
+                input = s.next();
+            }
+            else if (input.equals("a")) {
+                System.out.println("Enter a rating:");
+                numRating = s.nextInt();
+                System.out.println("ABOVE " + numRating);
+                for (int i = 0; i < 5; i++) {
+                    if (players[i][1] > numRating) {
+                        System.out.println("Player" + " " + (i + 1) + " -- Jersey number: " + players[i][0] + ", Rating: " + players[i][1]);
+                    }
+                }
+                menu();
+                input = s.next();
+            }
+            else if (input.equals("r")) {
+               System.out.println("Enter a jersey number:");
+               numJersey = s.nextInt();
+               for (int i = 0; i < 5; i++) {
+                  if (numJersey == players[i][0]) {
+               System.out.println("Enter a new jersey number:");
+               newJersey = s.nextInt();
+               System.out.println("Enter a rating for the new player");
+               numRating = s.nextInt();
+               for (int j = 0; j < 5; j++) {
+                if (numJersey == players[j][0]) {
+                   players[j][0] = newJersey;
+                   players[j][1] = numRating;
+                  }
+               }
+                  }
+               }
+               menu();
+                input = s.next();
+            }
+            if (input.equals("q")) {
+                break;
+            }
+            }
+        }
+    }
