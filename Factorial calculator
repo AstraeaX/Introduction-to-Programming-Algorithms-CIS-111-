@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class factorialCalc {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your factorial here:");
+        int n = scanner.nextInt();
+        int b = n;
+        double factorialTotal = 1;
+
+        while (b > 0) {
+            for (int i = 1; i <= n; i++) {
+                factorialTotal *= b;
+                System.out.print(i + " x ");
+                b--;
+                if (b == 1) {
+                    System.out.print(n);
+                    b--;
+                    System.out.println("\n" + "!" + n + " = " + factorialTotal);
+                    break;
+                }
+            }
+
+        }
+
+    }
+}
