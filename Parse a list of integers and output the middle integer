@@ -1,0 +1,31 @@
+import java.util.Scanner; 
+
+public class midInteger {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      int[] userValues = new int[9];  // Set of data specified by the user      
+      int num = 0, cnt = 0;
+      
+      num = scnr.nextInt();
+      
+      while (num > 0 && cnt < 10) {
+         if (cnt >= 9) {
+            cnt++;
+            break;
+         }
+         else {
+         userValues[cnt] = num;
+         cnt++;
+         num = scnr.nextInt();
+      }
+      }
+      if (cnt > 9) {
+         System.out.println("Too many inputs");
+      }
+      else {  
+         cnt = cnt/2;
+      System.out.println(userValues[cnt]);
+      }
+      }
+}
