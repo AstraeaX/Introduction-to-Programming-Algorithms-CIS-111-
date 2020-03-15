@@ -1,0 +1,25 @@
+import java.util.Scanner; 
+
+public class rangeDet {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      int[] userValues = new int[20];   // List of integers from input
+      int cnt = scnr.nextInt();
+      int max = 0;
+      
+      for (int i = 0; i < cnt + 1; i++) {
+         if (cnt == i) {
+            max = scnr.nextInt();
+         }
+         else {
+         userValues[i] = scnr.nextInt();
+      }
+      }
+      for (int i = 0; i < cnt; i++) {
+         if (max > userValues[i]) {
+            System.out.print(userValues[i] + " ");
+         }
+      }
+      System.out.println();
+   }
+}
