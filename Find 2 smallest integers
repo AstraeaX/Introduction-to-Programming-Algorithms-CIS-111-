@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner s = new Scanner(System.in);
+      int num = s.nextInt();
+      int low = 0;
+      int low2 = 0;
+      int[] array = new int[num];
+      
+      for (int i = 0; i < num; i++) {
+         array[i] = s.nextInt();
+      }
+      
+      low = array[0];
+      for (int i = 0; i < num; i++) {
+         if (low < array[i]) {
+            low = array[i];
+            low2 = array[i];
+         }
+      }
+      
+      for (int i = 0; i < num; i++) {
+         if (array[i] <= low) {
+            low = array[i];
+         }
+      }
+            
+      for (int i = 0; i < num; i++) {
+         if (array[i] >= low && low2 > array[i]) {
+            low2 = array[i];
+            }
+      }
+      
+      System.out.println(low + " " + low2);
+   }
+}
