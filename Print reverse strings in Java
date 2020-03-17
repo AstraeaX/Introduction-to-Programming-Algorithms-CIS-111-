@@ -3,9 +3,11 @@ public class reverseString {
     public static void main(String[] args) {
 
         Scanner s = new Scanner(System.in);
+        
+        System.out.println("Enter a string to reverse:");
         String text = s.nextLine();
         int n = text.length();
-
+        
         while (n >= 0) {
             if (text.equals("quit") || text.equals("q") || text.equals("Quit")) {
                 System.out.print("Thank you for reversing strings with me today. Goodbye.");
