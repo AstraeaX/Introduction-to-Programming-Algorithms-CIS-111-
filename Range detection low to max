@@ -10,6 +10,7 @@ public class LabProgram {
       for (int i = 0; i < num; i++) {
          array[i] = s.nextInt();
       }
+      
       low = s.nextInt();
       max = s.nextInt();
       
