@@ -15,7 +15,7 @@ public class factorialCalc {
                 if (b == 1) {
                     System.out.print(n);
                     b--;
-                    System.out.println("\n" + "!" + n + " = " + factorialTotal);
+                    System.out.print("\n!" + n + " = " + factorialTotal);
                     break;
                 }
             }
