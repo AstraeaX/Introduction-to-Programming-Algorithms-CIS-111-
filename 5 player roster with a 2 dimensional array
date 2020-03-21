@@ -24,7 +24,9 @@ public class PlayerRoster {
     }
     
     public static void roster(int[][] players) {
+    
     System.out.println("\nROSTER");
+    
         for (int i = 0; i < 5; i++) {
             for (int j = 1; j < 2; j++) {
                 System.out.println("Player " + (i + 1) + " -- Jersey number: " + players[i][0] + ", Rating: " + players[i][j]);
@@ -74,6 +76,7 @@ public class PlayerRoster {
                 System.out.println("Enter a rating:");
                 numRating = s.nextInt();
                 System.out.println("ABOVE " + numRating);
+                
                 for (int i = 0; i < 5; i++) {
                     if (players[i][1] > numRating) {
                         System.out.println("Player" + " " + (i + 1) + " -- Jersey number: " + players[i][0] + ", Rating: " + players[i][1]);
@@ -83,8 +86,10 @@ public class PlayerRoster {
                 input = s.next();
             }
             else if (input.equals("r")) {
+            
                System.out.println("Enter a jersey number:");
                numJersey = s.nextInt();
+               
                for (int i = 0; i < 5; i++) {
                   if (numJersey == players[i][0]) {
                System.out.println("Enter a new jersey number:");
