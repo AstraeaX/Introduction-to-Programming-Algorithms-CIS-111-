@@ -1,0 +1,114 @@
+import java.util.Scanner;
+
+public class AuthoringAssistant {
+   
+   public static void main(String[] args) {
+      Scanner s = new Scanner(System.in);
+      
+      System.out.println("Enter a sample text:");
+      String input = s.nextLine();
+      System.out.println("You entered: " + input);
+     
+      printMenu(s, input);
+      
+   }
+   
+   public static void printMenu(Scanner s, String input) {
+      
+      option(s, input);
+      
+   System.out.println("\nMENU");
+      
+   System.out.println("c - Number of non-whitespace characters");
+   System.out.println("w - Number of words");
+   System.out.println("f - Find text");
+   System.out.println("r - Replace all !'s");
+   System.out.println("s - Shorten spaces");
+   System.out.println("q - Quit");
+   
+   System.out.println("\nChoose an option:");
+      
+   }
+   
+   public static void option(Scanner s, String input) {
+      
+   String opt = s.nextLine();
+   
+   if (opt.equals("c")) {
+      System.out.println("Number of non-whitespace characters: " + getNumOfNonWSCharacters(input));
+   }
+   
+   if (opt.equals("w")) {
+      System.out.println("Number of words: " + getNumOfWords(input));
+   }
+   
+   if (opt.equals("f")) {
+      System.out.println("Enter a word or phrase to be found:");
+      String search = s.nextLine();
+      System.out.println("\"" + search + "\" instances: " + findText(search, input));
+   }
+   
+   if (opt.equals("r")) {
+      System.out.println("Edited text: " + replaceExclamation(input));
+   }
+   if (opt.equals("s")) {
+      System.out.println("Edited text: " + shortenSpace(input));
+   }
+   
+}
+
+   public static int getNumOfWords(String input) {
+      String[] numWords = input.split("\\s+");
+      return numWords.length;
+      
+}
+
+   public static int findText(String search, String input) {
+      int count = 0;
+      int where = 0;
+      
+      do {
+   where = input.indexOf(search);
+  
+   if (where != -1)  {
+   count++;
+   input = input.substring(where + search.length() - 1);
+   }
+      }
+   while(where != -1);
+      
+      return count;
+   }
+   
+   public static String replaceExclamation(String input) {
+      String repInput = input;
+      repInput = repInput.replace("!", ".");
+            return repInput;
+   }
+   
+   public static String shortenSpace(String input) {
+      String repSpaces = input;
+      repSpaces = repSpaces.replace("  ", " ");
+            return repSpaces;
+   }
+   
+   public static int getNumOfNonWSCharacters(String input) {
+      
+      int inputSize = 0;
+      
+      for (int i = 0; i < input.length(); i++) {
+         char d = input.charAt(i);
+         if (!Character.isWhitespace(d) && i != input.length() - 1) {
+            inputSize++;
+         } 
+         if (!Character.isWhitespace(d) && i == input.length() - 1) {
+            inputSize++;     
+         }
+         else if (Character.isWhitespace(d) && i == input.length() - 1) {
+         }       
+   }
+   
+   return inputSize;
+   
+   }
+}
