@@ -1,0 +1,47 @@
+import java.util.Scanner; 
+
+public class changeCount {
+   
+   public static void exactChange(int userTotal, int[] coinVals) {
+      
+      if (userTotal == 0) {
+         System.out.println("no change");
+      } else {
+      coinVals[0] = userTotal / 100;
+       userTotal %= 100;
+       coinVals[1] = userTotal / 25;
+       userTotal %= 25;
+       coinVals[2] = userTotal / 10;
+       userTotal %= 10;
+       coinVals[3] = userTotal / 5;
+       userTotal %= 5;
+       coinVals[4] = userTotal / 1;
+       userTotal %= 1;
+
+      if (coinVals[0] != 0) {
+         System.out.println(coinVals[0] + (coinVals[0] == 1 ? " dollar" : " dollars"));
+      }
+      if (coinVals[1] != 0) {
+         System.out.println(coinVals[1] + (coinVals[1] == 1 ? " quarter" : " quarters"));
+      }
+      if (coinVals[2] != 0) {
+         System.out.println(coinVals[2] + (coinVals[2] == 1 ? " dime" : " dimes"));
+      }
+      if (coinVals[3] != 0) {
+         System.out.println(coinVals[3] + (coinVals[3] == 1 ? " nickel" : " nickels"));
+      }
+      if (coinVals[4] != 0) {
+         System.out.println(coinVals[4] + (coinVals[4] == 1 ? " penny" : " pennies"));
+      }
+   }
+   }
+   
+   public static void main(String[] args) {
+      Scanner s = new Scanner(System.in);
+      int userTotal = s.nextInt();
+      int[] coinVals = new int[5];
+      
+      exactChange(userTotal, coinVals);
+      
+   }
+}
