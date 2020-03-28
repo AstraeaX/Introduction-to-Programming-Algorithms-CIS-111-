@@ -37,7 +37,7 @@ public class AuthoringAssistant {
    if (opt.equals("c")) {
       System.out.println("Number of non-whitespace characters: " + getNumOfNonWSCharacters(input));
    }
-   
+  
    if (opt.equals("w")) {
       System.out.println("Number of words: " + getNumOfWords(input));
    }
