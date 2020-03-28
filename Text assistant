@@ -98,14 +98,9 @@ public class AuthoringAssistant {
       
       for (int i = 0; i < input.length(); i++) {
          char d = input.charAt(i);
-         if (!Character.isWhitespace(d) && i != input.length() - 1) {
+         if (!Character.isWhitespace(d)) {
             inputSize++;
          } 
-         if (!Character.isWhitespace(d) && i == input.length() - 1) {
-            inputSize++;     
-         }
-         else if (Character.isWhitespace(d) && i == input.length() - 1) {
-         }       
    }
    
    return inputSize;
