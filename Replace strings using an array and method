@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class LabProgram {
+
+   public static int findWordInWordList(String[] wordList, String wordToFind, int numInList) {
+      
+      for (int i = 0; i < numInList; i++) {
+            if (wordList[i].equals(wordToFind)) {
+               return i;
+            }    
+         }
+      return -1;
+      }
+
+   public static void main(String[] args) {
+      Scanner s = new Scanner(System.in);
+      int numRepList = s.nextInt();
+      String[] origWord = new String[numRepList], newWord = new String[numRepList];
+      
+      for (int i = 0; i < numRepList; i++) {
+         origWord[i] = s.next();
+         newWord[i] = s.next();
+      }
+      
+      int listSize = s.nextInt();
+      String[] list = new String[listSize];
+      for (int i = 0; i < listSize; i++) {
+         list[i] = s.next();
+      }
+      
+      int idx;
+      for (int i = 0; i < listSize; i++) {
+         idx = findWordInWordList(origWord, list[i], numRepList);
+         if (idx != -1) {
+            list[i] = newWord[idx];
+         }
+      }
+      
+      
+      for (int i = 0; i < listSize; i++) {
+       System.out.print(list[i] + " ");  
+      }
+      System.out.println();
+   }
+}
