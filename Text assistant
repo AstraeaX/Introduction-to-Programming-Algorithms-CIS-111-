@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AuthoringAssistant {
+public class Main {
    
    public static void main(String[] args) {
       Scanner s = new Scanner(System.in);
@@ -15,8 +15,6 @@ public class AuthoringAssistant {
    
    public static void printMenu(Scanner s, String input) {
       
-      option(s, input);
-      
    System.out.println("\nMENU");
       
    System.out.println("c - Number of non-whitespace characters");
@@ -27,7 +25,9 @@ public class AuthoringAssistant {
    System.out.println("q - Quit");
    
    System.out.println("\nChoose an option:");
-      
+
+      option(s, input);
+
    }
    
    public static void option(Scanner s, String input) {
@@ -36,26 +36,35 @@ public class AuthoringAssistant {
    
    if (opt.equals("c")) {
       System.out.println("Number of non-whitespace characters: " + getNumOfNonWSCharacters(input));
+      printMenu(s, input);
    }
   
    if (opt.equals("w")) {
       System.out.println("Number of words: " + getNumOfWords(input));
+      printMenu(s, input);
    }
    
    if (opt.equals("f")) {
       System.out.println("Enter a word or phrase to be found:");
       String search = s.nextLine();
       System.out.println("\"" + search + "\" instances: " + findText(search, input));
+      printMenu(s, input);
    }
    
    if (opt.equals("r")) {
       System.out.println("Edited text: " + replaceExclamation(input));
+      printMenu(s, input);
    }
+
    if (opt.equals("s")) {
       System.out.println("Edited text: " + shortenSpace(input));
+      printMenu(s, input);
    }
    
-}
+   if (opt.equals("q")) {
+     System.out.println("Thanks for using my text assistant, goodbye.");
+   }
+   }
 
    public static int getNumOfWords(String input) {
       String[] numWords = input.split("\\s+");
