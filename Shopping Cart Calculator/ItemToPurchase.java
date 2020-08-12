@@ -8,7 +8,6 @@ public class ItemToPurchase {
         itemPrice = 0;
         itemQuantity = 0;
     }
-
     public void setName(String name) {
         itemName = name;
     }
