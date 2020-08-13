@@ -36,7 +36,7 @@ public class ShoppingCartPrinter {
         qn = scnr.nextInt();
         Item2.setQuantity(qn);
 
-        System.out.println("TOTAL COST");
+        System.out.println("TOTAL COST:");
         System.out.println(Item1.getName() + ": " + Item1.getQuantity() + " @ $" + Item1.getPrice() + " = $" + Item1.getPrice() * Item1.getQuantity());
         System.out.println(Item2.getName() + ": " + Item2.getQuantity() + " @ $" + Item2.getPrice() + " = $" + Item2.getPrice() * Item2.getQuantity());
         System.out.println("Total: $" + (Item1.getPrice() * Item1.getQuantity() + Item2.getPrice() * Item2.getQuantity()));
