@@ -1,0 +1,127 @@
+import java.util.Arrays;
+
+public class CodingWarmup {
+	public static void reverseArray(int[] Array) {
+		int[] Array2 = new int[Array.length];
+		
+		int j = 0;
+		int n = 0;	
+		for (int i = Array.length - 1; i >= 0; i--) {
+			Array2[n] = Array[i];
+			n++;
+		}
+		for (int i = 0; i <= Array.length - 1; i++) {
+			Array[i] = Array2[i];
+		}
+		}
+	
+	public static long factorial(long n) {
+      for (long i = n - 1; i > 0; --i) {
+      	n *= i;
+	  }
+      
+      return n;
+	}
+  
+	public static int getNumCollatzSteps(int startingNumber) {
+		int incNum = 1;
+		
+		while (startingNumber > 1) {
+		if (startingNumber % 2 == 0) {
+			startingNumber /= 2;
+			incNum++;
+		}
+		else {
+			startingNumber = startingNumber * 3 + 1;
+			incNum++;
+		}
+		}
+		
+		return incNum;
+	}
+	
+	public static int[] getPrimeFactors(int number) {
+		double holder = number;
+		int refresh = number;
+		int inc = 0;
+		int[] array;
+		
+		while (true) {
+			if (holder / 2 == (int)(holder / 2)) {
+				holder /= 2;
+				inc++;
+			}
+			else if (holder / 3 == (int)(holder / 3)) {
+				holder /= 3;
+				inc++;
+			}
+			else if (holder / 5 == (int)(holder / 5)) {
+				holder /= 5;
+				inc++;
+			}
+			else if (holder / 7 == (int)(holder / 7)) {
+				holder /= 7;
+				inc++;
+			}
+			else {
+				if (holder != 1) {
+				inc++;
+				}
+				array = new int[inc];
+				holder = refresh;
+				inc = 0;
+				
+				while (true) {
+				if (holder / 2 == (int)(holder / 2)) {
+					array[inc] = 2;
+					holder /= 2;
+					inc++;
+				}
+				else if (holder / 3 == (int)(holder / 3)) {
+					array[inc] = 3;
+					holder /= 3;
+					inc++;
+				}
+				else if (holder / 5 == (int)(holder / 5)) {
+					array[inc] = 5;
+					holder /= 5;
+					inc++;
+				}
+				else if (holder / 7 == (int)(holder / 7)) {
+					array[inc] = 7;
+					holder /= 7;
+					inc++;
+				}
+				else {
+					if (holder != 1) {
+					array[inc] = (int)holder;
+					}
+					break;
+				}
+				}
+				break;
+			}
+		}
+		
+		return array;
+	}
+	
+	public static int getNthFibonacci(int n) {
+		int[] f = new int[n + 2];
+		f[0] = 0;
+		f[1] = 1;
+		
+		for (int i = 2; i <= n; i++) {
+			f[i] = f[i-1] + f[i-2];
+		}
+		
+		return f[n];
+	}
+	
+	public static String arrayToString(int[] array) {
+		String arrayStr = Arrays.toString(array);
+		arrayStr.replace("," , ", ");	
+		
+		return arrayStr;
+	}
+}
