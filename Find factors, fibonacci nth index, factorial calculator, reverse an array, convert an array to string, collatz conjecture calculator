@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CodingWarmup {
 	public static void reverseArray(int[] Array) {
@@ -22,7 +24,11 @@ public class CodingWarmup {
       
       return n;
 	}
-  
+	
+	public static void main(String[] args) {
+		System.out.println(arrayToString(getPrimeFactors(1)));
+	}
+	
 	public static int getNumCollatzSteps(int startingNumber) {
 		int incNum = 1;
 		
@@ -47,6 +53,11 @@ public class CodingWarmup {
 		int[] array;
 		
 		while (true) {
+			if (holder == 1 && inc == 0) {
+				array = new int[1];
+				array[0] = 1;
+				break;
+			}
 			if (holder / 2 == (int)(holder / 2)) {
 				holder /= 2;
 				inc++;
