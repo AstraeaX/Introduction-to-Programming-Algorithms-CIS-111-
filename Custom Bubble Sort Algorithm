@@ -1,0 +1,39 @@
+import java.util.Arrays; /* Make sure to delete this later. */
+
+public class Sort {
+
+	public static int[] sort(int[] inputArray) {
+		int lowVal;
+		int highVal;
+		int size = inputArray.length;
+		int indexLow = 0;
+		int oldVal;
+        for (int i = 0; i < size; i++) {
+        	lowVal = Integer.MAX_VALUE;
+        	highVal = inputArray[i];
+        	for (int j = i; j < size; j++) {
+        		
+        		if (inputArray[j] < lowVal) {
+        			lowVal = inputArray[j];
+        			indexLow = j;
+        		}
+        		if (inputArray[j] > highVal) {
+        			highVal = inputArray[j];
+        		}
+        		if (j == size - 1) {
+        			oldVal = inputArray[i];
+        			inputArray[i] = low;
+        			inputArray[indexLow] = oldVal;
+        		}
+        		
+        	}
+        }
+        return inputArray;
+    }
+	
+	public static void main(String[] args) {
+		int[] array = new int[] { 3, 1, 4, 6, 8, 10, 9, 2, 5, 7 };
+		System.out.println("Original array: " + Arrays.toString(array));
+		System.out.println("Bubble Sorted array: " + Arrays.toString(sort(array)));
+	}
+}
