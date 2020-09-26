@@ -3,23 +3,18 @@ import java.util.Arrays;
 public class Sort {
 	public static int[] sort(int[] inputArray) {
 		int lowVal;
-		int highVal;
 		int indexLow = 0;
 		int oldVal;
         for (int i = 0; i < inputArray.length; i++) {
         	lowVal = Integer.MAX_VALUE;
-        	highVal = inputArray[i];
         	for (int j = i; j < inputArray.length; j++) {
         		if (inputArray[j] < lowVal) {
         			lowVal = inputArray[j];
         			indexLow = j;
         		}
-        		if (inputArray[j] > highVal) {
-        			highVal = inputArray[j];
-        		}
-        		if (j == size - 1) {
+        		if (j == inputArray.length - 1) {
         			oldVal = inputArray[i];
-        			inputArray[i] = low;
+        			inputArray[i] = lowVal;
         			inputArray[indexLow] = oldVal;
         		}
         	}
