@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class WhatOrder {
+   
+   public static <T extends Comparable<T>> int checkOrder(T A, T B, T C, T D) {
+      int n = 0;
+      
+    	  if (A.compareTo(B) > 0) {
+    		  if (B.compareTo(C) > 0) {
+    			  if (C.compareTo(D) > 0) {
+    				  n = 1;
+    			  }
+    		  }
+    	  }
+    	  
+    	  if (A.compareTo(B) < 0) {
+    		  if (B.compareTo(C) < 0) {
+    			  if (C.compareTo(D) < 0) {
+    				  n = -1;
+    			  }
+    		  }
+    	  } 
+        
+      return n;
+   }
+   /* TODO: Define a generic method called checkOrder() that 
+   *       takes in four variables of generic type as arguments. 
+   *       The return type of the method is integer
+   *
+   * Check the order of the input: return -1 for ascending, 
+   * 0 for neither, 1 for descending */
+   
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+
+      // Check order of four strings
+      //System.out.println("Order: " + checkOrder(scnr.next(), scnr.next(), scnr.next(), scnr.next())); 
+      System.out.println("Test: " + checkOrder("Amazing", "Apples", "Stop", "At"));
+      System.out.println("Test: " + checkOrder(5.4, 3.222, 2.44, 1.333));
+      // Check order of four doubles
+      // System.out.println("Order: " + checkOrder(scnr.nextDouble(), scnr.nextDouble(), scnr.nextDouble(), scnr.nextDouble()));
+      
+      scnr.close();
+   }
+}
